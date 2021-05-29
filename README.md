@@ -8,7 +8,6 @@ A python script which helps in sorting your bulk images according to the date of
 			- Date
 				- File Name
 
-![](https://raw.githubusercontent.com/manumanoj0010/Image-sorter/master/video.gif)
 
 ### Description
 
