@@ -51,19 +51,22 @@ class SortImages():
                     else:
                         # files whose naming pattern is IMG-20191122-WA0023.jpg
                         fileName = file.split(sep="-")
-                        #files whose naming pattern is IMG_20191122_0023.jpg
-                        if len(fileName)<2:
+                        
+                        if len(fileName)!=3:
+                            #files whose naming pattern is IMG_20191122_0023.jpg
                             fileName = file.split(sep="_")
+                            
                         # files which doesnot have any naming pattern
-                        if len(fileName)<2:                           
+                        if len(fileName)!=3:                           
                             ti_m = os.path.getctime(file)
                             date_stamp = datetime.date.fromtimestamp(ti_m)
                             dateArray = str(date_stamp).split(sep="-")
                             year, month, date =dateArray[0], dateArray[1], dateArray[2]
+                            
                         else:
                             dateArray = fileName[1]
                             year, month, date = dateArray[:4], dateArray[4:6], dateArray[6:8]
-                            
+                                                    
                         new_name = year + '-' + month + '-' + date + '@' + '1' + '.' + file_extension
                         new_dir = self.current_dir + "/Photos/" + year + "/" + self.months.get(int(month)) + "/" + date
                         self.file_organiser(file, new_dir, new_name, year, month, date, extension)
